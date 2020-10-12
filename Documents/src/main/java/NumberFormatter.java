@@ -1,22 +1,33 @@
 public class NumberFormatter {
 
-    public String formatNumber(int n){
-        String formatted = "";
-
-        if (n % 4 == 0){
-            formatted = "Skuddår";
+    public boolean isLeapYear(int year){
+        boolean leapYear;
+        if (year % 4 == 0){
+            leapYear = true;
         } else {
+            return false;
+        }
+        if (year % 100 == 0){
+            leapYear = false;
+        }
+        if(year % 400 == 0){
+            leapYear = true;
+        }
+        if (year % 4000 == 0){
+            leapYear = true;
+        }
+        return leapYear;
+    }
+    public String formatNumber(int n){
+        String formatted;
+
+        if(isLeapYear(n)){
+            formatted = "Skuddår";
+        }
+        else{
             formatted = "Ikke skuddår";
         }
-        if (n % 100 == 0){
-            formatted = "Ikke skuddår";
-        }
-        if(n % 400 == 0){
-            formatted = "Det var skuddår alikevel";
-        }
-        if (n % 4000 == 0){
-            formatted = "Lenge til, men skuddår";
-        }
+
 
         return formatted;
     }

@@ -27,13 +27,13 @@ public class TestLeapYear {
     @ParameterizedTest
     @ValueSource(ints = {2000, 1200, 1600, 2400})
     public void testDividesByFourHundredResultsInLeapYearAfterAll(int n){
-        assertEquals("Det var skuddår alikevel", nf.formatNumber(n));
+        assertEquals("Skuddår", nf.formatNumber(n));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {4000, 8000, 12000})
     public void testDividesByFourThousandResultsInLeapYearInLongTime(int n){
-        assertEquals("Lenge til, men skuddår", nf.formatNumber(n));
+        assertEquals("Skuddår", nf.formatNumber(n));
     }
 
     @ParameterizedTest
